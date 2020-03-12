@@ -1,0 +1,27 @@
+{
+  "name": "innou-token",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vadim.konstantinov@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/cli": "^2.7.1",
+    "@openzeppelin/contracts-ethereum-package": "^2.4.0",
+    "@openzeppelin/test-helpers": "^0.5.4",
+    "@openzeppelin/upgrades": "^2.7.1",
+    "@truffle/hdwallet-provider": "^1.0.32"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.0",
+    "truffle-flattener": "^1.4.2"
+  }
+}

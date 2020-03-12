@@ -1,0 +1,47 @@
+0a1,11
+> /**
+>  * @dev This is a copy of the "@openzeppelin/contracts-ethereum-package/contracts/token/ERC777/ERC777.sol" file
+>  * with the only modifications made as follow:
+>  * - the (dummy) `function _preValidateSpending(address, uint256) internal view {}` added
+>  * - the functions `_burn`, `_move` and `approve` updated to call `_preValidateSpending`
+>  * - path to files in `import` statements updated to regard the path to this file
+>  * - this block of comments added
+>  *
+>  * The modifications needed to support optional tokens lock-in for an emergency stop or vesting.
+>  */
+>
+5,12c16,24
+< import "../../GSN/Context.sol";
+< import "./IERC777.sol";
+< import "./IERC777Recipient.sol";
+< import "./IERC777Sender.sol";
+< import "../../token/ERC20/IERC20.sol";
+< import "../../math/SafeMath.sol";
+< import "../../utils/Address.sol";
+< import "../../introspection/IERC1820Registry.sol";
+---
+> import "@openzeppelin/contracts-ethereum-package/contracts/GSN/Context.sol";
+> import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC777/IERC777.sol";
+> import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC777/IERC777.sol";
+> import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC777/IERC777Recipient.sol";
+> import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC777/IERC777Sender.sol";
+> import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/IERC20.sol";
+> import "@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol";
+> import "@openzeppelin/contracts-ethereum-package/contracts/utils/Address.sol";
+> import "@openzeppelin/contracts-ethereum-package/contracts/introspection/IERC1820Registry.sol";
+268a281
+>         _preValidateSpending(holder, value);
+298a312,320
+>      * @dev Child contracts MAY overwrite this function to lock tokens when needed.
+>      * To prevent spending, the function shall revert the call (i.e. for pausing or vesting).
+>      */
+>     function _preValidateSpending(
+>         address,    // spender
+>         uint256     // amount
+>     ) internal view { }
+>
+>     /**
+384a407
+>         _preValidateSpending(from, amount);
+405a429
+>         _preValidateSpending(from, amount);

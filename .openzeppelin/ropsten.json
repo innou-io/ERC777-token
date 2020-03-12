@@ -1,0 +1,600 @@
+{
+  "contracts": {
+    "InnouTokensPreSale": {
+      "address": "0x81bFE6D6bA8E6f90e3Ed85Bcdac8b4DE6f25D6Ff",
+      "constructorCode": "6080604052615013806100136000396000f3fe",
+      "bodyBytecodeHash": "991ad66b8eefde626f608edcdf7f485fe3d921ecce98e0ff62703758b89f62c3",
+      "localBytecodeHash": "cf939f4adbcdd5fd40e08ce27856434c9079ad05e8b97c5dcc5d5072cdd87c29",
+      "deployedBytecodeHash": "cf939f4adbcdd5fd40e08ce27856434c9079ad05e8b97c5dcc5d5072cdd87c29",
+      "types": {
+        "t_bool": {
+          "id": "t_bool",
+          "kind": "elementary",
+          "label": "bool"
+        },
+        "t_uint256": {
+          "id": "t_uint256",
+          "kind": "elementary",
+          "label": "uint256"
+        },
+        "t_array:50<t_uint256>": {
+          "id": "t_array:50<t_uint256>",
+          "valueType": "t_uint256",
+          "length": "50",
+          "kind": "array",
+          "label": "uint256[50]"
+        },
+        "t_address": {
+          "id": "t_address",
+          "kind": "elementary",
+          "label": "address"
+        },
+        "t_address_payable": {
+          "id": "t_address_payable",
+          "kind": "elementary",
+          "label": "address payable"
+        },
+        "t_struct<Roles.Role>": {
+          "id": "t_struct<Roles.Role>",
+          "kind": "struct",
+          "label": "Roles.Role",
+          "members": [
+            {
+              "label": "bearer",
+              "astId": 35,
+              "type": "t_mapping<t_bool>",
+              "src": "150:32:1"
+            }
+          ]
+        },
+        "t_mapping<t_bool>": {
+          "id": "t_mapping<t_bool>",
+          "valueType": "t_bool",
+          "label": "mapping(key => bool)",
+          "kind": "mapping"
+        },
+        "t_mapping<t_uint256>": {
+          "id": "t_mapping<t_uint256>",
+          "valueType": "t_uint256",
+          "label": "mapping(key => uint256)",
+          "kind": "mapping"
+        }
+      },
+      "storage": [
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "initialized",
+          "astId": 2205,
+          "type": "t_bool",
+          "src": "757:24:19"
+        },
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "initializing",
+          "astId": 2207,
+          "type": "t_bool",
+          "src": "876:25:19"
+        },
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "______gap",
+          "astId": 2269,
+          "type": "t_array:50<t_uint256>",
+          "src": "1982:29:19"
+        },
+        {
+          "contract": "Ownable",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/ownership/Ownable.sol",
+          "label": "_owner",
+          "astId": 1501,
+          "type": "t_address",
+          "src": "526:22:11"
+        },
+        {
+          "contract": "Ownable",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/ownership/Ownable.sol",
+          "label": "______gap",
+          "astId": 1614,
+          "type": "t_array:50<t_uint256>",
+          "src": "2471:29:11"
+        },
+        {
+          "contract": "ReentrancyGuard",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/utils/ReentrancyGuard.sol",
+          "label": "_guardCounter",
+          "astId": 2167,
+          "type": "t_uint256",
+          "src": "733:29:18"
+        },
+        {
+          "contract": "ReentrancyGuard",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/utils/ReentrancyGuard.sol",
+          "label": "______gap",
+          "astId": 2200,
+          "type": "t_array:50<t_uint256>",
+          "src": "1563:29:18"
+        },
+        {
+          "contract": "Crowdsale",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/crowdsale/Crowdsale.sol",
+          "label": "_token",
+          "astId": 501,
+          "type": "t_address",
+          "src": "1119:21:5"
+        },
+        {
+          "contract": "Crowdsale",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/crowdsale/Crowdsale.sol",
+          "label": "_wallet",
+          "astId": 503,
+          "type": "t_address_payable",
+          "src": "1188:31:5"
+        },
+        {
+          "contract": "Crowdsale",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/crowdsale/Crowdsale.sol",
+          "label": "_rate",
+          "astId": 505,
+          "type": "t_uint256",
+          "src": "1510:21:5"
+        },
+        {
+          "contract": "Crowdsale",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/crowdsale/Crowdsale.sol",
+          "label": "_weiRaised",
+          "astId": 507,
+          "type": "t_uint256",
+          "src": "1566:26:5"
+        },
+        {
+          "contract": "Crowdsale",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/crowdsale/Crowdsale.sol",
+          "label": "______gap",
+          "astId": 792,
+          "type": "t_array:50<t_uint256>",
+          "src": "7910:29:5"
+        },
+        {
+          "contract": "TimedCrowdsale",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/crowdsale/validation/TimedCrowdsale.sol",
+          "label": "_openingTime",
+          "astId": 950,
+          "type": "t_uint256",
+          "src": "340:28:7"
+        },
+        {
+          "contract": "TimedCrowdsale",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/crowdsale/validation/TimedCrowdsale.sol",
+          "label": "_closingTime",
+          "astId": 952,
+          "type": "t_uint256",
+          "src": "374:28:7"
+        },
+        {
+          "contract": "TimedCrowdsale",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/crowdsale/validation/TimedCrowdsale.sol",
+          "label": "______gap",
+          "astId": 1117,
+          "type": "t_array:50<t_uint256>",
+          "src": "3419:29:7"
+        },
+        {
+          "contract": "CapperRole",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/access/roles/CapperRole.sol",
+          "label": "_cappers",
+          "astId": 132,
+          "type": "t_struct<Roles.Role>",
+          "src": "327:27:2"
+        },
+        {
+          "contract": "CapperRole",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/access/roles/CapperRole.sol",
+          "label": "______gap",
+          "astId": 232,
+          "type": "t_array:50<t_uint256>",
+          "src": "1193:29:2"
+        },
+        {
+          "contract": "IndividuallyCappedCrowdsale",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/crowdsale/validation/IndividuallyCappedCrowdsale.sol",
+          "label": "_contributions",
+          "astId": 812,
+          "type": "t_mapping<t_uint256>",
+          "src": "399:50:6"
+        },
+        {
+          "contract": "IndividuallyCappedCrowdsale",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/crowdsale/validation/IndividuallyCappedCrowdsale.sol",
+          "label": "_caps",
+          "astId": 816,
+          "type": "t_mapping<t_uint256>",
+          "src": "455:41:6"
+        },
+        {
+          "contract": "IndividuallyCappedCrowdsale",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/crowdsale/validation/IndividuallyCappedCrowdsale.sol",
+          "label": "______gap",
+          "astId": 935,
+          "type": "t_array:50<t_uint256>",
+          "src": "2557:29:6"
+        },
+        {
+          "contract": "InnouTokensPreSale",
+          "path": "contracts/InnouTokensPreSale.sol",
+          "label": "_cap",
+          "astId": 2647,
+          "type": "t_uint256",
+          "src": "1778:20:24"
+        },
+        {
+          "contract": "InnouTokensPreSale",
+          "path": "contracts/InnouTokensPreSale.sol",
+          "label": "_bigRate",
+          "astId": 2649,
+          "type": "t_uint256",
+          "src": "1804:24:24"
+        },
+        {
+          "contract": "InnouTokensPreSale",
+          "path": "contracts/InnouTokensPreSale.sol",
+          "label": "_midRate",
+          "astId": 2651,
+          "type": "t_uint256",
+          "src": "1834:24:24"
+        },
+        {
+          "contract": "InnouTokensPreSale",
+          "path": "contracts/InnouTokensPreSale.sol",
+          "label": "_minContribution",
+          "astId": 2653,
+          "type": "t_uint256",
+          "src": "1865:32:24"
+        },
+        {
+          "contract": "InnouTokensPreSale",
+          "path": "contracts/InnouTokensPreSale.sol",
+          "label": "_teamWallet",
+          "astId": 2655,
+          "type": "t_address",
+          "src": "1903:27:24"
+        },
+        {
+          "contract": "InnouTokensPreSale",
+          "path": "contracts/InnouTokensPreSale.sol",
+          "label": "_bountyWallet",
+          "astId": 2657,
+          "type": "t_address",
+          "src": "1936:29:24"
+        },
+        {
+          "contract": "InnouTokensPreSale",
+          "path": "contracts/InnouTokensPreSale.sol",
+          "label": "_rewardsWallet",
+          "astId": 2659,
+          "type": "t_address",
+          "src": "1971:30:24"
+        },
+        {
+          "contract": "InnouTokensPreSale",
+          "path": "contracts/InnouTokensPreSale.sol",
+          "label": "_weiRaisedOffchain",
+          "astId": 2661,
+          "type": "t_uint256",
+          "src": "2008:34:24"
+        },
+        {
+          "contract": "InnouTokensPreSale",
+          "path": "contracts/InnouTokensPreSale.sol",
+          "label": "_purchasedTokens",
+          "astId": 2663,
+          "type": "t_uint256",
+          "src": "2048:32:24"
+        },
+        {
+          "contract": "InnouTokensPreSale",
+          "path": "contracts/InnouTokensPreSale.sol",
+          "label": "_issuerTokenBase",
+          "astId": 2665,
+          "type": "t_uint256",
+          "src": "2086:32:24"
+        }
+      ],
+      "warnings": {
+        "hasConstructor": false,
+        "hasSelfDestruct": false,
+        "hasDelegateCall": false,
+        "hasInitialValuesInDeclarations": false,
+        "uninitializedBaseContracts": []
+      }
+    },
+    "InnouToken": {
+      "address": "0x5a53BDEa8F766825Eae28124e1907E79093d405C",
+      "constructorCode": "6080604052615792806100136000396000f3fe",
+      "bodyBytecodeHash": "4bcb448eb9bd813782e881af237c586aef9b3e14611334a180b69abd7fdb501b",
+      "localBytecodeHash": "cdaac83269dd160a45db361704b4a7a8e59071fb08bb613a4e1ed442fa89dd43",
+      "deployedBytecodeHash": "cdaac83269dd160a45db361704b4a7a8e59071fb08bb613a4e1ed442fa89dd43",
+      "types": {
+        "t_bool": {
+          "id": "t_bool",
+          "kind": "elementary",
+          "label": "bool"
+        },
+        "t_uint256": {
+          "id": "t_uint256",
+          "kind": "elementary",
+          "label": "uint256"
+        },
+        "t_array:50<t_uint256>": {
+          "id": "t_array:50<t_uint256>",
+          "valueType": "t_uint256",
+          "length": "50",
+          "kind": "array",
+          "label": "uint256[50]"
+        },
+        "t_mapping<t_uint256>": {
+          "id": "t_mapping<t_uint256>",
+          "valueType": "t_uint256",
+          "label": "mapping(key => uint256)",
+          "kind": "mapping"
+        },
+        "t_string": {
+          "id": "t_string",
+          "kind": "elementary",
+          "label": "string"
+        },
+        "t_address": {
+          "id": "t_address",
+          "kind": "elementary",
+          "label": "address"
+        },
+        "t_array:dyn<t_address>": {
+          "id": "t_array:dyn<t_address>",
+          "valueType": "t_address",
+          "length": "dyn",
+          "kind": "array",
+          "label": "address[]"
+        },
+        "t_mapping<t_bool>": {
+          "id": "t_mapping<t_bool>",
+          "valueType": "t_bool",
+          "label": "mapping(key => bool)",
+          "kind": "mapping"
+        },
+        "t_struct<Roles.Role>": {
+          "id": "t_struct<Roles.Role>",
+          "kind": "struct",
+          "label": "Roles.Role",
+          "members": [
+            {
+              "label": "bearer",
+              "astId": 35,
+              "type": "t_mapping<t_bool>",
+              "src": "150:32:1"
+            }
+          ]
+        }
+      },
+      "storage": [
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "initialized",
+          "astId": 2205,
+          "type": "t_bool",
+          "src": "757:24:19"
+        },
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "initializing",
+          "astId": 2207,
+          "type": "t_bool",
+          "src": "876:25:19"
+        },
+        {
+          "contract": "Initializable",
+          "path": "@openzeppelin/upgrades/contracts/Initializable.sol",
+          "label": "______gap",
+          "astId": 2269,
+          "type": "t_array:50<t_uint256>",
+          "src": "1982:29:19"
+        },
+        {
+          "contract": "ERC777",
+          "path": "contracts/openzeppelin-modified/contracts-ethereum-package/ERC777.sol",
+          "label": "_balances",
+          "astId": 3738,
+          "type": "t_mapping<t_uint256>",
+          "src": "2379:45:27"
+        },
+        {
+          "contract": "ERC777",
+          "path": "contracts/openzeppelin-modified/contracts-ethereum-package/ERC777.sol",
+          "label": "_totalSupply",
+          "astId": 3740,
+          "type": "t_uint256",
+          "src": "2431:28:27"
+        },
+        {
+          "contract": "ERC777",
+          "path": "contracts/openzeppelin-modified/contracts-ethereum-package/ERC777.sol",
+          "label": "_name",
+          "astId": 3742,
+          "type": "t_string",
+          "src": "2466:20:27"
+        },
+        {
+          "contract": "ERC777",
+          "path": "contracts/openzeppelin-modified/contracts-ethereum-package/ERC777.sol",
+          "label": "_symbol",
+          "astId": 3744,
+          "type": "t_string",
+          "src": "2492:22:27"
+        },
+        {
+          "contract": "ERC777",
+          "path": "contracts/openzeppelin-modified/contracts-ethereum-package/ERC777.sol",
+          "label": "_defaultOperatorsArray",
+          "astId": 3753,
+          "type": "t_array:dyn<t_address>",
+          "src": "3140:40:27"
+        },
+        {
+          "contract": "ERC777",
+          "path": "contracts/openzeppelin-modified/contracts-ethereum-package/ERC777.sol",
+          "label": "_defaultOperators",
+          "astId": 3757,
+          "type": "t_mapping<t_bool>",
+          "src": "3274:50:27"
+        },
+        {
+          "contract": "ERC777",
+          "path": "contracts/openzeppelin-modified/contracts-ethereum-package/ERC777.sol",
+          "label": "_operators",
+          "astId": 3763,
+          "type": "t_mapping<t_bool>",
+          "src": "3414:63:27"
+        },
+        {
+          "contract": "ERC777",
+          "path": "contracts/openzeppelin-modified/contracts-ethereum-package/ERC777.sol",
+          "label": "_revokedDefaultOperators",
+          "astId": 3769,
+          "type": "t_mapping<t_bool>",
+          "src": "3483:77:27"
+        },
+        {
+          "contract": "ERC777",
+          "path": "contracts/openzeppelin-modified/contracts-ethereum-package/ERC777.sol",
+          "label": "_allowances",
+          "astId": 3775,
+          "type": "t_mapping<t_uint256>",
+          "src": "3591:69:27"
+        },
+        {
+          "contract": "ERC777",
+          "path": "contracts/openzeppelin-modified/contracts-ethereum-package/ERC777.sol",
+          "label": "______gap",
+          "astId": 4719,
+          "type": "t_array:50<t_uint256>",
+          "src": "17834:29:27"
+        },
+        {
+          "contract": "MinterRole",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/access/roles/MinterRole.sol",
+          "label": "_minters",
+          "astId": 255,
+          "type": "t_struct<Roles.Role>",
+          "src": "327:27:3"
+        },
+        {
+          "contract": "MinterRole",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/access/roles/MinterRole.sol",
+          "label": "______gap",
+          "astId": 355,
+          "type": "t_array:50<t_uint256>",
+          "src": "1193:29:3"
+        },
+        {
+          "contract": "ERC777Mintable",
+          "path": "contracts/ERC777Mintable.sol",
+          "label": "______gap",
+          "astId": 2405,
+          "type": "t_array:50<t_uint256>",
+          "src": "2156:29:21"
+        },
+        {
+          "contract": "PauserRole",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/access/roles/PauserRole.sol",
+          "label": "_pausers",
+          "astId": 378,
+          "type": "t_struct<Roles.Role>",
+          "src": "327:27:4"
+        },
+        {
+          "contract": "PauserRole",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/access/roles/PauserRole.sol",
+          "label": "______gap",
+          "astId": 478,
+          "type": "t_array:50<t_uint256>",
+          "src": "1193:29:4"
+        },
+        {
+          "contract": "Pausable",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/lifecycle/Pausable.sol",
+          "label": "_paused",
+          "astId": 1220,
+          "type": "t_bool",
+          "src": "909:20:9"
+        },
+        {
+          "contract": "Pausable",
+          "path": "@openzeppelin/contracts-ethereum-package/contracts/lifecycle/Pausable.sol",
+          "label": "______gap",
+          "astId": 1303,
+          "type": "t_array:50<t_uint256>",
+          "src": "2163:29:9"
+        },
+        {
+          "contract": "Vestable",
+          "path": "contracts/Vestable.sol",
+          "label": "_totalLocked",
+          "astId": 3505,
+          "type": "t_uint256",
+          "src": "573:20:26"
+        },
+        {
+          "contract": "Vestable",
+          "path": "contracts/Vestable.sol",
+          "label": "_locked",
+          "astId": 3509,
+          "type": "t_mapping<t_uint256>",
+          "src": "678:43:26"
+        },
+        {
+          "contract": "Vestable",
+          "path": "contracts/Vestable.sol",
+          "label": "______gap",
+          "astId": 3702,
+          "type": "t_array:50<t_uint256>",
+          "src": "3752:29:26"
+        },
+        {
+          "contract": "InnouToken",
+          "path": "contracts/InnouToken.sol",
+          "label": "______gap",
+          "astId": 2592,
+          "type": "t_array:50<t_uint256>",
+          "src": "3281:29:23"
+        }
+      ],
+      "warnings": {
+        "hasConstructor": false,
+        "hasSelfDestruct": false,
+        "hasDelegateCall": false,
+        "hasInitialValuesInDeclarations": false,
+        "uninitializedBaseContracts": []
+      }
+    }
+  },
+  "solidityLibs": {},
+  "proxies": {
+    "innou-tokensales/InnouToken": [
+      {
+        "address": "0xEcc513418801cE5D1a3C288Ea69F5bA77eeBaEE0",
+        "version": "1.0.0",
+        "implementation": "0x5a53BDEa8F766825Eae28124e1907E79093d405C",
+        "admin": "0xa8f6675B754174381f24a0A6Ab0CAec049ADfd7d",
+        "kind": "Upgradeable"
+      }
+    ]
+  },
+  "manifestVersion": "2.2",
+  "version": "1.0.0",
+  "proxyAdmin": {
+    "address": "0xa8f6675B754174381f24a0A6Ab0CAec049ADfd7d"
+  }
+}
