@@ -18,18 +18,21 @@ module.exports = function(callback) {
 };
 
 async function main(){
-    const newtworkType = await web3.eth.net.getNetworkType();
-    const networkId = await web3.eth.net.getId();
-    console.log(`network type: ${newtworkType}`);
+    const {networkType, networkId} = await getNetworkTypeAndId();
+    console.log(`network type: ${networkType}`);
     console.log(`network id: ${networkId}`);
+
+    if (networkType !== 'private') {
+        throw new Error("This script is expected to run on the private network");
+    }
 
     const addresses = await getAddresses();
     console.log(addresses);
 
-    await deployErc1820Registry(networkId, newtworkType, addresses.deployer);
+    await deployErc1820Registry(networkId, networkType, addresses.deployer);
 
     const ozOptions = {};
-    await initOz(networkId, newtworkType, addresses.deployer, ozOptions);
+    await initOz(networkId, networkType, addresses.deployer, ozOptions);
 
     const contracts = {};
 
@@ -65,61 +68,6 @@ async function main(){
         });
 }
 
-async function getAddresses() {
-    const addresses = {};
-    [
-        addresses.deployer,
-        addresses.owner,
-        addresses.minter,
-        addresses.capper,
-        addresses.wallet,
-        addresses.teamWallet,
-        addresses.bountyWallet,
-        addresses.rewardsWallet,
-        addresses.investor,
-        addresses.fiatInvestor
-    ] = await web3.eth.getAccounts();
-    return addresses;
-}
-
-async function deployErc1820Registry(networkId, networkType, from) {
-    const network = networkId.toString();
-    if (networkType === 'private' ) {
-        console.log(`deploying an ERC1820 registry on network ${networkId}`);
-        await singletons.ERC1820Registry(from);
-    } else {
-        console.log(`!!! Skipping ERC1820 registry deployment for network ${networkId}`);
-    }
-}
-
-async function initOz(networkId, networkType, from, ozOptions) {
-    console.log('initializing Openzeppelin-sdk-cli');
-    Object.assign(
-        ozOptions,
-        await oz.ConfigManager.initNetworkConfiguration({
-            network: `${process.env.NETWORK || 'develop'}`,
-            from,
-        })
-    );
-    await oz.scripts.push(ozOptions);
-
-    await oz.scripts.add({
-        contractsData: [{ name: 'InnouToken', alias: 'InnouToken' }]
-    });
-    await oz.scripts.add({
-        contractsData: [{ name: 'InnouTokensPreSale', alias: 'InnouTokensPreSale' }]
-    });
-}
-
-async function deployUpgradableContract(contractParams, ozOptions) {
-    console.log(`Deploying contract ${contractParams.contractAlias}`);
-    const contract  = await oz.scripts.create(
-        Object.assign(contractParams, ozOptions)
-    );
-    console.log(`Contract ${contractParams.contractAlias} deployed at ${contract.address}`);
-    return contract;
-}
-
 async function testBaseScenario(addresses, contracts, logs) {
     console.log("Running and testing the Base scenario");
     const {
@@ -135,7 +83,7 @@ async function testBaseScenario(addresses, contracts, logs) {
     logStep('overMinting', await token.methods.mint(presale.address, presale.address, e18(401e+6), '0x0', '0x0').send({from: minter, gas: 300000}).then(_ => { throw new Error('must throw'); }).catch(e => e || `reverted as expected`));
     logStep('setInvestorCap', await presale.methods.setCap(investor, ether(50)).send({from: capper}));
     await advanceTimeToPresaleStart();
-    logStep('investorPays', await web3.eth.sendTransaction({from: investor, to: presale.address, value: ether(5), gas: 200000}));
+    logStep('investorPays', await web3.eth.sendTransaction({from: investor, to: presale.address, value: ether(5), gas: 500000}));
     logStep('investorBuys', await presale.methods.buyTokens(investor).send({from: fiatInvestor, value: ether(10), gas: 400000}));
     logStep('extendTime', await presale.methods.extendTime(parseInt((new Date())/1000 + 10800)).send({from: owner}));
     logStep('issuerTokens1', await presale.methods.issueTokensToIssuer().send({from: owner, gas: 400000}).then(_ => { throw new Error('must throw'); }).catch(e => e || `reverted as expected`));
@@ -175,6 +123,64 @@ async function testBaseScenario(addresses, contracts, logs) {
             throw new Error('PreSale is NOT open');
         }
     }
+}
+
+async function getNetworkTypeAndId() {
+    const networkType = await web3.eth.net.getNetworkType();
+    const networkId = await web3.eth.net.getId();
+    return {networkType, networkId};
+}
+
+async function getAddresses() {
+    const addresses = {};
+    [
+        addresses.deployer,
+        addresses.owner,
+        addresses.minter,
+        addresses.capper,
+        addresses.wallet,
+        addresses.teamWallet,
+        addresses.bountyWallet,
+        addresses.rewardsWallet,
+        addresses.investor,
+        addresses.fiatInvestor
+    ] = await web3.eth.getAccounts();
+    return addresses;
+}
+
+async function deployErc1820Registry(networkId, networkType, from) {
+    const network = networkId.toString();
+    if (networkType === 'private' ) {
+        console.log(`deploying an ERC1820 registry on network ${networkId}`);
+        await singletons.ERC1820Registry(from);
+    } else {
+        console.log(`!!! Skipping ERC1820 registry deployment for network ${networkId}`);
+    }
+}
+
+async function initOz(networkId, networkType, from, ozOptions) {
+    console.log('initializing Openzeppelin-sdk-cli');
+    Object.assign(
+        ozOptions,
+        await oz.ConfigManager.initNetworkConfiguration({network: 'develop', from})
+    );
+    await oz.scripts.push(ozOptions);
+
+    await oz.scripts.add({
+        contractsData: [{ name: 'InnouToken', alias: 'InnouToken' }]
+    });
+    await oz.scripts.add({
+        contractsData: [{ name: 'InnouTokensPreSale', alias: 'InnouTokensPreSale' }]
+    });
+}
+
+async function deployUpgradableContract(contractParams, ozOptions) {
+    console.log(`Deploying contract ${contractParams.contractAlias}`);
+    const contract  = await oz.scripts.create(
+        Object.assign(contractParams, ozOptions)
+    );
+    console.log(`Contract ${contractParams.contractAlias} deployed at ${contract.address}`);
+    return contract;
 }
 
 function getLogger(logs = []) {

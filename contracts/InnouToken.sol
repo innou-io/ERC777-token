@@ -6,9 +6,9 @@ import "@openzeppelin/contracts-ethereum-package/contracts/lifecycle/Pausable.so
 import "@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol";
 import "./ERC777Mintable.sol";
 import "./Vestable.sol";
-// import "./ILockableToken.sol";
+import "./ILockableToken.sol";
 
-contract InnouToken is Initializable, Context, ERC777Mintable, Pausable, Vestable { // ILockableToken
+contract InnouToken is Initializable, Context, ERC777Mintable, Pausable, Vestable, ILockableToken {
     using SafeMath for uint256;
 
     string internal constant NAME = "INNOU.IO Token";
