@@ -200,7 +200,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4697,
+                        "referencedDeclaration": 4706,
                         "src": "158:3:24",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -284,7 +284,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4697,
+                        "referencedDeclaration": 4706,
                         "src": "209:3:24",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -737,8 +737,8 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xf105Cb033D5393c14665e47899a1d44796d6b764",
-      "transactionHash": "0xa717f8c8032c184b1feeeb8ffa20bd674e3830f8faf2c8fed1437f2325e76f51"
+      "address": "0xE9a8C1efEFB72D804977933B052191c18F530343",
+      "transactionHash": "0xf55e0950c55bb3b327b7dfd6b0ac6a64e916cd2cd0160e9fbe417d9906a79d35"
     }
   }
 }

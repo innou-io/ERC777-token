@@ -59,7 +59,7 @@ module.exports = {
     live: {
       network_id: 1,
       provider: getInfuraProvider('mainnet'),
-      gasPrice: 7e9,
+      gasPrice: 1e9,
     },
 
   },

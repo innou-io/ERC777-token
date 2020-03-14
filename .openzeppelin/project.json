@@ -2,7 +2,7 @@
   "manifestVersion": "2.2",
   "contracts": {
     "InnouToken": "InnouToken",
-    "InnouTokensPreSale": "InnouTokensPreSale"
+    "TeamWallet": "TeamWallet"
   },
   "name": "innou-tokensales",
   "version": "1.0.0",

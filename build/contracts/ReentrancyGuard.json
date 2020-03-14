@@ -407,10 +407,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4700,
-                        4701
+                        4709,
+                        4710
                       ],
-                      "referencedDeclaration": 4701,
+                      "referencedDeclaration": 4710,
                       "src": "1477:7:18",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",

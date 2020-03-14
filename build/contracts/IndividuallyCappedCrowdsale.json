@@ -629,7 +629,7 @@
                       "name": "assert",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 4686,
+                      "referencedDeclaration": 4695,
                       "src": "568:6:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_assert_pure$_t_bool_$returns$__$",
@@ -1301,7 +1301,7 @@
                         "name": "super",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4736,
+                        "referencedDeclaration": 4745,
                         "src": "1881:5:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_super$_IndividuallyCappedCrowdsale_$936",
@@ -1529,10 +1529,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        4700,
-                        4701
+                        4709,
+                        4710
                       ],
-                      "referencedDeclaration": 4701,
+                      "referencedDeclaration": 4710,
                       "src": "1994:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1692,7 +1692,7 @@
                         "name": "super",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4736,
+                        "referencedDeclaration": 4745,
                         "src": "2410:5:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_super$_IndividuallyCappedCrowdsale_$936",
